@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "uri"
+
+Product.delete_all
+
+25.times do
+  p = Product.create(name:        Faker::Commerce.unique.product_name,
+                     price: rand(5000..100_000).to_i,
+                     description: Faker::Hipster.sentence(word_count: rand(4..8)))
+
+  puts "Creating #{p.name}"
+  end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
