@@ -8,6 +8,7 @@
 require "uri"
 
 Product.delete_all
+Customer.delete_all
 
 25.times do
   p = Product.create(name:        Faker::Commerce.unique.product_name,
@@ -16,5 +17,15 @@ Product.delete_all
 
   puts "Creating #{p.name}"
   end
+
+  25.times do
+    c = Customer.create(username:        Faker::Internet.user.username,
+                       password: "password",
+                       province: "Manitoba")
+
+    puts "Creating #{c.name}"
+    end
+
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+AdminUser.create!(email: 'parbjot@test.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
