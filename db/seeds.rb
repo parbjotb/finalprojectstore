@@ -19,13 +19,13 @@ Customer.delete_all
   end
 
   25.times do
-    c = Customer.create(username:        Faker::Internet.user.username,
+    c = Customer.create(username:        Faker::Internet.user[:username],
                        password: "password",
                        province: "Manitoba")
 
-    puts "Creating #{c.name}"
+    puts "Creating #{c.username}"
     end
 
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
-AdminUser.create!(email: 'parbjot@test.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+# AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+# AdminUser.create!(email: 'parbjot@test.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
