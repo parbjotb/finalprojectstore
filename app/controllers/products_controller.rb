@@ -25,4 +25,9 @@ class ProductsController < ApplicationController
     # for item in items, get item.name, item.price, item.description
     @product = Product.find(params[:id])
   end
+
+  def search
+    wildcard_search = "%#{params[:id]}%"
+    @products = Product.where("name LIKE ?", wildcard_search)
+  end
 end
