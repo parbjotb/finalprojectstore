@@ -14,6 +14,12 @@ Customer.delete_all
   p = Product.create(name:        Faker::Commerce.unique.product_name,
                      price: rand(5000..100_000).to_i,
                      description: Faker::Hipster.sentence(word_count: rand(4..8)))
+                     # THESE LINES BELOW ALL US TO ADD IMAGES TO EACH PRODUCT
+                     # NEED TO MAKE A CATEGORIES TABLE AND ADD PRODUCTS
+                    #  query = URI.encode_www_form_component([product.name, category.name].join(","))
+                    #  downloaded_image = URI.open("https://source.unsplash.com/600x600/?#{query}")
+                    #  product.image.attach(io: downloaded_image, filenameL "m-#{[product.name, category.name].join('-')}.jpg")
+                    #  sleep(1)
 
   puts "Creating #{p.name}"
   end

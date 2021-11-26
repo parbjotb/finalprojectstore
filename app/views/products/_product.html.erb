@@ -4,4 +4,12 @@
 <h3><%= product.name %></h3>
 <p>Price: <%= number_to_currency product.price %></p>
 <p><%= product.description %></p>
+<% if product.image.present? %>
+  <div class="card-image">
+    <figure class="image">
+      <%= image_tag product.image %>
+    </figure>
+  </div>
+  <% end %>
 </aside>
+
